@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Character Counter</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <style>
+        *{
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgb(192, 113, 113);
+            height: 700px;
+        }
+        #text{
+            text-align: center;
+            resize: none;
+            width: 100%;
+            height: 80px;
+            padding: 15px;
+            text-align: start;
+            background-color: white;
+            border: 2px solid ;
+            
+            
+        }
+        .div2{
+        
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            justify-content: space-between;
+            font-family: 3;
+            font-size: large;
+            font-weight: bold;
+
+        }
+        .div1{
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            justify-content: center;
+            height: 300px;
+            
+            border: 1px solid black;
+            width: 500px;
+            text-align: center;
+            padding: 15px;
+            background-color: orange;
+            border-radius: 10px;
+            box-shadow: 5px 5px 20px ;
+        }
+        #total-char, #remaining{
+            color: rgb(166, 31, 31);
+            font-size: larger;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <div class="div1">
+        <h2>Real-Time Character Counter</h2>
+        <textarea name="" id="text" cols="45" rows="5" maxlength="100" placeholder="Please write your text here..."></textarea>
+        <div class="div2">
+            <p>Total Character: <span id="total-char">0</span></p>
+            <p>Remaining: <span id="remaining">0</span></p>
+        </div>
+
+    </div>
+
+   
+
+    
+    
+
+    <script>
+        let text=document.getElementById("text");
+        text.addEventListener("keyup",function(){
+            
+            updatecounter()
+        })
+        let count=document.getElementById("total-char");
+        let remaining=document.getElementById("remaining")
+        remaining.innerText=text.getAttribute("maxlength");
+
+        function updatecounter(){
+            count.innerText = text.value.length;
+            text.value = text.value.toUpperCase();
+
+
+            remaining.innerText=text.getAttribute("maxlength")-count.innerText;
+
+        }
+        
+       
+        
+
+        
+    </script>
+</body>
+</html>
